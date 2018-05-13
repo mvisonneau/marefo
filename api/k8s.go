@@ -8,6 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func GetK8SRunningImages(c *gin.Context) {
+func getK8SRunningImages(c *gin.Context) {
 	c.JSON(http.StatusOK, k8s.FetchImagesFromRunningPods())
 }

@@ -2,3 +2,5 @@
 vendor/
 tls/*.crt
 tls/*.key
+marefo
+main

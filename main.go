@@ -1,25 +1,13 @@
 package main
 
 import (
-	"github.com/mvisonneau/marefo/api"
+  "os"
 
-	"github.com/gin-gonic/gin"
+	"github.com/mvisonneau/marefo/cli"
 )
 
+var version = "<devel>"
+
 func main() {
-	r := gin.Default()
-
-	v1 := r.Group("/api/v1/k8s")
-	{
-		v1.GET("/images", api.GetK8SRunningImages)
-	}
-
-	v1 = r.Group("/api/v1/clair")
-	{
-		v1.GET("/images", api.GetClairKnownImages)
-		v1.GET("/images/:name", api.GetClairImageInfo)
-	}
-
-	// TODO: Make this configurable more properly
-	r.RunTLS(":8443", "./tls/server.crt", "./tls/server.key")
+  cli.Run(&version).Run(os.Args)
 }
