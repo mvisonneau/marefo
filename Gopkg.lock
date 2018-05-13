@@ -24,14 +24,15 @@
   revision = "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae"
 
 [[projects]]
+  branch = "master"
   name = "github.com/gin-gonic/gin"
   packages = [
     ".",
     "binding",
+    "json",
     "render"
   ]
-  revision = "d459835d2b077e44f7c9b453505ee29881d5d12d"
-  version = "v1.2"
+  revision = "bf7803815b0baa22ff7a10457932882dfbf09925"
 
 [[projects]]
   name = "github.com/gogo/protobuf"
@@ -256,6 +257,7 @@
   branch = "master"
   name = "k8s.io/api"
   packages = [
+    "admission/v1beta1",
     "admissionregistration/v1alpha1",
     "admissionregistration/v1beta1",
     "apps/v1",
@@ -383,6 +385,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8a8a864687e11d802849b1151356fe97cfd7e88603b4f78eb0d00ad0ef07e0a2"
+  inputs-digest = "911eaaa475fbd73e9ccae775fefe6cec0e45aad38c3720003ac28abfb38dff00"
   solver-name = "gps-cdcl"
   solver-version = 1

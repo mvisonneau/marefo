@@ -29,6 +29,7 @@ func Run(c *cli.Context) {
   {
     v1.GET("/images", getClairKnownImages)
     v1.GET("/images/*image", getClairImageInfo)
+    v1.POST("/images/admit", postClairAdmitImage)
   }
 
   // TODO: Make this configurable more properly
