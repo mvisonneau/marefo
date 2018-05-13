@@ -1,6 +1,8 @@
 package k8s
 
 import (
+  "sort"
+
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
@@ -36,6 +38,8 @@ func FetchImagesFromRunningPods() (i map[string]interface{}) {
 			i["images"] = appendIfMissing(i["images"].([]string), container.Image)
 		}
 	}
+
+  sort.Strings(i["images"].([]string))
 
 	return
 }
