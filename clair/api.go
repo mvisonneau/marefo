@@ -1,14 +1,14 @@
 package clair
 
 import (
-  "context"
+	"context"
 
 	"github.com/coreos/clair/api/v3/clairpb"
 	"google.golang.org/grpc"
 )
 
 type Clair struct {
-  client clairpb.AncestryServiceClient
+	client clairpb.AncestryServiceClient
 }
 
 func NewClient(url string) (*Clair, error) {
@@ -31,7 +31,7 @@ func (c *Clair) Analyze(image string) ([]*clairpb.Vulnerability, error) {
 		return nil, err
 	}
 
-  var vulnerabilities []*clairpb.Vulnerability
+	var vulnerabilities []*clairpb.Vulnerability
 	for _, f := range response.Ancestry.Features {
 		for _, v := range f.Vulnerabilities {
 			vulnerabilities = append(vulnerabilities, v)

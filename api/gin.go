@@ -1,37 +1,37 @@
 package api
 
 import (
-  "fmt"
+	"fmt"
 
-  "github.com/mvisonneau/marefo/config"
+	"github.com/mvisonneau/marefo/config"
 
-  "github.com/gin-gonic/gin"
-  "github.com/urfave/cli"
+	"github.com/gin-gonic/gin"
+	"github.com/urfave/cli"
 )
 
 func Run(c *cli.Context) {
-  switch config.Get().Log.Level {
+	switch config.Get().Log.Level {
 	case "debug":
 		gin.SetMode(gin.DebugMode)
 	default:
-    fmt.Println("-> Started!")
+		fmt.Println("-> Started!")
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-  r := gin.Default()
+	r := gin.Default()
 
-  v1 := r.Group("/api/v1/k8s")
-  {
-    v1.GET("/images", getK8SRunningImages)
-  }
+	v1 := r.Group("/api/v1/k8s")
+	{
+		v1.GET("/images", getK8SRunningImages)
+	}
 
-  v1 = r.Group("/api/v1/clair")
-  {
-    v1.GET("/images", getClairKnownImages)
-    v1.GET("/images/*image", getClairImageInfo)
-    v1.POST("/images/admit", postClairAdmitImage)
-  }
+	v1 = r.Group("/api/v1/clair")
+	{
+		v1.GET("/images", getClairKnownImages)
+		v1.GET("/images/*image", getClairImageInfo)
+		v1.POST("/images/admit", postClairAdmitImage)
+	}
 
-  // TODO: Make this configurable more properly
-  r.RunTLS(":8443", "./tls/server.crt", "./tls/server.key")
+	// TODO: Make this configurable more properly
+	r.RunTLS(":8443", "./tls/server.crt", "./tls/server.key")
 }

@@ -1,7 +1,7 @@
 package main
 
 import (
-  "os"
+	"os"
 
 	"github.com/mvisonneau/marefo/cli"
 )
@@ -9,5 +9,5 @@ import (
 var version = "<devel>"
 
 func main() {
-  cli.Run(&version).Run(os.Args)
+	cli.Run(&version).Run(os.Args)
 }

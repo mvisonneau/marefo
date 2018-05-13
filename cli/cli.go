@@ -3,8 +3,8 @@ package cli
 import (
 	"fmt"
 
-  "github.com/mvisonneau/marefo/api"
-  "github.com/mvisonneau/marefo/config"
+	"github.com/mvisonneau/marefo/api"
+	"github.com/mvisonneau/marefo/config"
 
 	"github.com/urfave/cli"
 )

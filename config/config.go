@@ -6,7 +6,7 @@ type Config struct {
 		Endpoint string
 	}
 
-  Log struct {
+	Log struct {
 		Level  string
 		Format string
 	}
@@ -18,6 +18,6 @@ func init() {
 	config = Config{}
 }
 
-func Get() (*Config) {
+func Get() *Config {
 	return &config
 }
