@@ -28,7 +28,7 @@ func Run(c *cli.Context) {
   v1 = r.Group("/api/v1/clair")
   {
     v1.GET("/images", getClairKnownImages)
-    v1.GET("/images/:image", getClairImageInfo)
+    v1.GET("/images/*image", getClairImageInfo)
   }
 
   // TODO: Make this configurable more properly
